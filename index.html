@@ -2,11 +2,37 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>svideo</title>
-    <link rel="stylesheet" href="/public/style.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Video App</title>
 </head>
 <body>
-    <div id="app"><%= body %></div>
-    <script src="/public/bundle.js"></script>
+    <div id="app"></div>
+    <script src="node_modules/react/dist/react.js"></script>
+    <script src="node_modules/react-dom/dist/react-dom.js"></script>
+    <script>
+
+      const ce = React.createElement
+
+        const MyTitle = function(props) {
+          return (
+            ce('div', null, 
+              ce('h1', { style: { color: props.color } }, props.title)
+            )
+          )
+        }
+        const MyFirstComponent = function() {
+          return ce('div', { id: 'divy'}, 
+            ce(MyTitle, { title: 'GOT', color: 'maroon'}),
+            ce(MyTitle, { title: 'NFL', color: 'peru'}),
+            ce(MyTitle, { title: 'Jimmy', color: 'lightblue'}),
+            ce(MyTitle, { title: 'What', color: 'lime'})
+          )
+        }
+
+        ReactDOM.render(
+          ce(MyFirstComponent), document.getElementById('app')
+        )
+    </script>
 </body>
 </html>
