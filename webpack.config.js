@@ -8,12 +8,12 @@ const config = {
   output: {
     path: path.resolve(__dirname, 'public'),
     filename: 'bundle.js',
-    publicPath: '/public/'
+    publicPath: '/public/' // path on the server not the app
   },
   devServer: {
     hot: true,
     publicPath: '/public/',
-    historyApiFallback: true
+    historyApiFallback: true // needed for BrowserRouter to work, only runs in dev
   },
   resolve: {
     extensions: ['.js', '.jsx', '.json'],
