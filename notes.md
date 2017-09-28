@@ -21,3 +21,6 @@ import { shallow } from 'enzyme';
 
 # Flow
 - up until video 41 just using reglar javascript, Flow adds typescripts which changes everything
+- `yarn flow init`
+- `flow-typed install`
+- flow doesnt need prop-types anymore

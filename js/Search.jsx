@@ -1,28 +1,18 @@
+// @flow
+
 import React, { Component } from 'react';
 import ShowCard from './ShowCard';
-import preload from '../data.json';
 
 class Search extends Component {
   state = {
     searchTerm: ''
   };
 
-  /* Can also use a contructor to set state but hte above is easier
+  props: {
+    shows: Array<Show>
+  };
 
-    constructor(props) {
-      super(props);
-
-      this.state = {
-        searchTerm: 'this is search'
-      };
-
-      // This is the way to bind currently but will be depricated soon
-      // this.handleSearchTermChange = this.handleSearchTermChange.bind(this);
-    }
-    
-  */
-
-  handleSearchTermChange = event => {
+  handleSearchTermChange = (event: SyntheticKeyboardEvent & { target: HTMLInputElement }) => {
     this.setState({ searchTerm: event.target.value });
   };
 
@@ -39,7 +29,7 @@ class Search extends Component {
           />
         </header>
         <div>
-          {preload.shows
+          {this.props.shows
             .filter(
               show =>
                 `${show.title} ${show.description}`.toUpperCase().indexOf(this.state.searchTerm.toUpperCase()) >= 0
