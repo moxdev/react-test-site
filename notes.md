@@ -20,4 +20,4 @@ import { shallow } from 'enzyme';
 - can edit components without doing a full reload
 
 # Flow
--
+- up until video 41 just using reglar javascript, Flow adds typescripts which changes everything
